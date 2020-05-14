@@ -9,73 +9,43 @@ namespace GuessingGame
             Console.WriteLine("Welcome to Guessing Game!");
             bool winningGuess = false;
             int guessTrys = 0;
-            {
-                //while (winningGuess == false & guessTrys < 2)
-                //{
-                //    Console.WriteLine(" Enter a guess.");
-                //    string userGuess = Console.ReadLine();
-                //    if (userGuess == "7")
-                //    {
-                //        Console.WriteLine("You guessed right!");
-                //        winningGuess = true;
-                //    }
-                //    else if (userGuess == "0")
-                //    {
-                //        Console.WriteLine("Enter an number between 1-10.");
-                //    }
-                //    else if (userGuess == "-1")
-                //    {
-                //        Console.WriteLine("GAME EXITED by user.");
-                //        guessTrys = 2;
-                //        winningGuess = true;
-                //    }
-                //    else
-                //    {
-                //        Console.WriteLine("You Lose!");
-                //    }
-                //        guessTrys = guessTrys + 1;
-                //}
-            }
+
+            Random random = new Random();
+            int secretNumber = random.Next(1, 10);
+
+            Console.WriteLine(secretNumber);
             while (winningGuess == false & guessTrys < 2)
             {
                 Console.WriteLine(" Enter a guess.");
-                string userGuess = Console.ReadLine();
+                int userGuess = Convert.ToInt32(Console.ReadLine());
 
-                switch (userGuess)
+                if (userGuess == -1)
                 {
-                    case "-1":
-                        {
-                            Console.WriteLine("GAME EXITED by user.");
-                            guessTrys = 2;
-                            break;
-                        }
-                    case "0":
-                        {
-                            Console.WriteLine("Enter an number between 1-10.");
-                            break;
-                        }
-                    case "7":
-                        {
-                            Console.WriteLine("You guessed right!");
-                            winningGuess = true;
-                            break;
-                        }
-                    default:
-                        {
-                            Console.WriteLine("You Lose!");
-                            if (Convert.ToInt32(userGuess) > 7)
-                            {
-                                Console.WriteLine("You guessed to high");
-                            }
-                            else 
-                            {
-                                Console.WriteLine("You guessed to low");
-                            }
-                            break;
-                        }
+                    Console.WriteLine("GAME EXITED by user.");
+                    guessTrys = 2;
+                }
+                else if (userGuess == 0)
+                {
+                    Console.WriteLine("Enter an number between 1-10.");
+                }
+                else if (userGuess == secretNumber)
+                {
+                    Console.WriteLine("You guessed right!");
+                    winningGuess = true;
+                }
+                else
+                {
+                    Console.WriteLine("You Lose!");
+                    if (userGuess > secretNumber)
+                    {
+                        Console.WriteLine("You guessed to high");
+                    }
+                    else
+                    {
+                        Console.WriteLine("You guessed to low");
+                    }
                 }
                 guessTrys = guessTrys + 1;
-
             }
         }
 
