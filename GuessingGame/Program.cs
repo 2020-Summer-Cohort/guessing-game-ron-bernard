@@ -63,6 +63,14 @@ namespace GuessingGame
                     default:
                         {
                             Console.WriteLine("You Lose!");
+                            if (Convert.ToInt32(userGuess) > 7)
+                            {
+                                Console.WriteLine("You guessed to high");
+                            }
+                            else 
+                            {
+                                Console.WriteLine("You guessed to low");
+                            }
                             break;
                         }
                 }
