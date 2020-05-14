@@ -7,14 +7,16 @@ namespace GuessingGame
         static void Main(string[] args)
         {
             Console.WriteLine("Welcome to Guessing Game!");
-            for (int i = 0; i < 2; i++)
+            bool winningGuess = false;
+            int guessTrys = 0;
+            while (winningGuess == false & guessTrys < 2)
             {
                 Console.WriteLine(" Enter a guess.");
                 string userGuess = Console.ReadLine();
                 if (userGuess == "7")
                 {
                     Console.WriteLine("You guessed right!");
-
+                    winningGuess = true;
                 }
                 else if (userGuess == "0")
                 {
@@ -24,6 +26,7 @@ namespace GuessingGame
                 {
                     Console.WriteLine("You Lose!");
                 }
+                guessTrys = guessTrys + 1;
             }
            
 
