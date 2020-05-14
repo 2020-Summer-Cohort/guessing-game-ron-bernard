@@ -15,10 +15,16 @@ namespace GuessingGame
                 Console.WriteLine("You guessed right!");
 
             }
+            else if (userGuess == "0")
+            {
+                Console.WriteLine("Enter an number between 1-10.");
+            }
             else
             {
                 Console.WriteLine("You Lose!");
             }
+            //User puts in 0, provide instrucstions
+
         }
 
     }
