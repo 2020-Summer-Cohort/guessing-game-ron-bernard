@@ -11,7 +11,7 @@ namespace GuessingGame
             int guessTrys = 0;
 
             Random random = new Random();
-            int secretNumber = random.Next(1, 10);
+            int secretNumber = random.Next(1, 11);
 
             //Console.WriteLine(secretNumber);
 
